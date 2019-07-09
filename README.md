@@ -255,11 +255,11 @@ Content-Type: application/json
 # Useful Links
 https://docs.microsoft.com/en-us/azure/search/cognitive-search-tutorial-blob   
 https://medium.com/@Herger/chapter-2-azure-search-in-the-spotlight-72da0b4cf39c   
-https://clemenssiebler.com/azure-search-cors-configuration/
-https://github.com/Azure-Samples/azure-search-knowledge-mining
-https://github.com/Microsoft/cookiecutter-azure-search-cognitive-skill
-https://github.com/liamca/build2019aidemos
-https://github.com/Microsoft/SkillsExtractorCognitiveSearch
-https://github.com/Azure-Samples/azure-search-power-skills
-https://azure.github.io/LearnAI-KnowledgeMiningBootcamp/labs/lab-azure-search.html
+https://clemenssiebler.com/azure-search-cors-configuration/  
+https://github.com/Azure-Samples/azure-search-knowledge-mining  
+https://github.com/Microsoft/cookiecutter-azure-search-cognitive-skill  
+https://github.com/liamca/build2019aidemos  
+https://github.com/Microsoft/SkillsExtractorCognitiveSearch  
+https://github.com/Azure-Samples/azure-search-power-skills  
+https://azure.github.io/LearnAI-KnowledgeMiningBootcamp/labs/lab-azure-search.html  
 
