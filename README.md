@@ -186,3 +186,57 @@ Content-Type: application/json
   ]
 }
 ```
+
+## Create Indexer
+```
+PUT https://[servicename].search.windows.net/indexers/demoindexer?api-version=2019-05-06
+api-key: [api-key]
+Content-Type: application/json
+{
+  "name":"demoindexer",	
+  "dataSourceName" : "demodata",
+  "targetIndexName" : "demoindex",
+  "skillsetName" : "demoskillset",
+  "fieldMappings" : [
+    {
+      "sourceFieldName" : "metadata_storage_path",
+      "targetFieldName" : "id",
+      "mappingFunction" :
+        { "name" : "base64Encode" }
+    },
+    {
+      "sourceFieldName" : "content",
+      "targetFieldName" : "content"
+    }
+  ],
+  "outputFieldMappings" :
+  [
+    {
+      "sourceFieldName" : "/document/organizations",
+      "targetFieldName" : "organizations"
+    },
+    {
+      "sourceFieldName" : "/document/pages/*/keyPhrases/*",
+      "targetFieldName" : "keyPhrases"
+    },
+    {
+      "sourceFieldName": "/document/languageCode",
+      "targetFieldName": "languageCode"
+    }
+  ],
+  "parameters":
+  {
+    "maxFailedItems":-1,
+    "maxFailedItemsPerBatch":-1,
+    "configuration":
+    {
+      "dataToExtract": "contentAndMetadata",
+      "imageAction": "generateNormalizedImages"
+    }
+  }
+}
+
+GET https://[servicename].search.windows.net/indexers/demoindexer/status?api-version=2019-05-06
+api-key: [api-key]
+Content-Type: application/json
+```
