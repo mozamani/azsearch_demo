@@ -39,10 +39,10 @@ curl --request POST \
 
 ## 4. Create a skillset
 Here pre-built cognitive skillsets:
-Language Detection
-Text Split 
-Entity Recognition 
-Key Phrase Extraction   
+Language Detection   
+Text Split   
+Entity Recognition   
+Key Phrase Extraction     
 
 ```shell
 PUT https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2019-05-06
@@ -125,24 +125,10 @@ Content-Type: application/json
   ]
 }
 ```
-```shell
-curl --request PUT \
-  --url 'https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2019-05-06' \
-  --header 'Accept: */*' \
-  --header 'Cache-Control: no-cache' \
-  --header 'Connection: keep-alive' \
-  --header 'Content-Type: application/json' \
-  --header 'Host: [servicename].search.windows.net' \
-  --header 'accept-encoding: gzip, deflate' \
-  --header 'api-key: [api-key]' \
-  --header 'cache-control: no-cache' \
-  --header 'content-length: 1672' \
-  --data '{\n  "description":\n  "Extract entities, detect language and extract key-phrases",\n  "skills":\n  [\n    {\n      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",\n      "categories": [ "Organization" ],\n      "defaultLanguageCode": "en",\n      "inputs": [\n        {\n          "name": "text", "source": "/document/content"\n        }\n      ],\n      "outputs": [\n        {\n          "name": "organizations", "targetName": "organizations"\n        }\n      ]\n    },\n    {\n      "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",\n      "inputs": [\n        {\n          "name": "text", "source": "/document/content"\n        }\n      ],\n      "outputs": [\n        {\n          "name": "languageCode",\n          "targetName": "languageCode"\n        }\n      ]\n    },\n    {\n      "@odata.type": "#Microsoft.Skills.Text.SplitSkill",\n      "textSplitMode" : "pages",\n      "maximumPageLength": 4000,\n      "inputs": [\n        {\n          "name": "text",\n          "source": "/document/content"\n        },\n        {\n          "name": "languageCode",\n          "source": "/document/languageCode"\n        }\n      ],\n      "outputs": [\n        {\n          "name": "textItems",\n          "targetName": "pages"\n        }\n      ]\n    },\n    {\n      "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",\n      "context": "/document/pages/*",\n      "inputs": [\n        {\n          "name": "text", "source": "/document/pages/*"\n        },\n        {\n          "name":"languageCode", "source": "/document/languageCode"\n        }\n      ],\n      "outputs": [\n        {\n          "name": "keyPhrases",\n          "targetName": "keyPhrases"\n        }\n      ]\n    }\n  ]\n}'
-```
 
 ![alt text](https://docs.microsoft.com/en-us/azure/search/media/cognitive-search-tutorial-blob/skillset.png)
 
-## Create Index
+## 5. Create an Index
 ```shell
 PUT https://[servicename].search.windows.net/indexes/demoindex?api-version=2019-05-06
 api-key: [api-key]
@@ -193,7 +179,7 @@ Content-Type: application/json
 }
 ```
 
-## Create Indexer
+## 6. Create an Indexer
 ```shell
 PUT https://[servicename].search.windows.net/indexers/demoindexer?api-version=2019-05-06
 api-key: [api-key]
@@ -247,7 +233,7 @@ api-key: [api-key]
 Content-Type: application/json
 ```
 
-## Example Query
+## 7. Example Query
 ```
 GET https://[servicename].search.windows.net/indexes/demoindex?api-version=2019-05-06
 api-key: [api-key]
@@ -258,10 +244,22 @@ api-key: [api-key]
 Content-Type: application/json
 ```
 
-# Useful Links
-https://docs.microsoft.com/en-us/azure/search/cognitive-search-tutorial-blob   
-https://medium.com/@Herger/chapter-2-azure-search-in-the-spotlight-72da0b4cf39c   
+## Notes:
+- How indexing and context works:  
+https://medium.com/@Herger/chapter-2-azure-search-in-the-spotlight-72da0b4cf39c     
+
+- How to query an index:
+https://docs.microsoft.com/en-us/azure/search/query-simple-syntax  
+https://docs.microsoft.com/en-us/azure/search/query-lucene-syntax
+
+- How to expose an index   
 https://clemenssiebler.com/azure-search-cors-configuration/  
+
+
+
+# Useful Links
+https://docs.microsoft.com/en-us/azure/search/
+https://docs.microsoft.com/en-us/azure/search/cognitive-search-tutorial-blob   
 https://github.com/Azure-Samples/azure-search-knowledge-mining  
 https://github.com/Microsoft/cookiecutter-azure-search-cognitive-skill  
 https://github.com/liamca/build2019aidemos  
