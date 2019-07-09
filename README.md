@@ -253,12 +253,17 @@ https://docs.microsoft.com/en-us/azure/search/knowledge-store-concept-intro
 - How indexing and context works:  
 https://medium.com/@Herger/chapter-2-azure-search-in-the-spotlight-72da0b4cf39c     
 
-- How to query an index:
+- How to query an index:  
 https://docs.microsoft.com/en-us/azure/search/query-simple-syntax  
 https://docs.microsoft.com/en-us/azure/search/query-lucene-syntax
 
-- How to expose an index   
-https://clemenssiebler.com/azure-search-cors-configuration/  
+- How to add a scoring profile
+https://docs.microsoft.com/en-us/azure/search/index-add-scoring-profiles
+
+- How to add a suggester
+
+- How to use CORS   
+https://clemenssiebler.com/azure-search-cors-configuration/   
 
 
 # Useful Links
