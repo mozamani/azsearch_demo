@@ -3,7 +3,7 @@
 ## Create the Search Service
 
 ## Add a storage 
-```
+```shell
 POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
 Content-Type: application/json
 api-key: [admin key]
@@ -20,7 +20,7 @@ api-key: [admin key]
 }
 ```
 or 
-```
+```shell
 curl --request POST \
   --url 'https://[service name].search.windows.net/datasources?api-version=2019-05-06' \
   --header 'Accept: */*' \
@@ -36,6 +36,8 @@ curl --request POST \
 ```
 
 ## Create a skillset
+Here Language Detection, Text Split, Entity Recognition & Key Phrase Extraction 
+
 ```shell
 PUT https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2019-05-06
 api-key: [admin key]
@@ -116,4 +118,18 @@ Content-Type: application/json
     }
   ]
 }
+```
+```shell
+curl --request PUT \
+  --url 'https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2019-05-06' \
+  --header 'Accept: */*' \
+  --header 'Cache-Control: no-cache' \
+  --header 'Connection: keep-alive' \
+  --header 'Content-Type: application/json' \
+  --header 'Host: [servicename].search.windows.net' \
+  --header 'accept-encoding: gzip, deflate' \
+  --header 'api-key: [api-key]' \
+  --header 'cache-control: no-cache' \
+  --header 'content-length: 1672' \
+  --data '{\n  "description":\n  "Extract entities, detect language and extract key-phrases",\n  "skills":\n  [\n    {\n      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",\n      "categories": [ "Organization" ],\n      "defaultLanguageCode": "en",\n      "inputs": [\n        {\n          "name": "text", "source": "/document/content"\n        }\n      ],\n      "outputs": [\n        {\n          "name": "organizations", "targetName": "organizations"\n        }\n      ]\n    },\n    {\n      "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",\n      "inputs": [\n        {\n          "name": "text", "source": "/document/content"\n        }\n      ],\n      "outputs": [\n        {\n          "name": "languageCode",\n          "targetName": "languageCode"\n        }\n      ]\n    },\n    {\n      "@odata.type": "#Microsoft.Skills.Text.SplitSkill",\n      "textSplitMode" : "pages",\n      "maximumPageLength": 4000,\n      "inputs": [\n        {\n          "name": "text",\n          "source": "/document/content"\n        },\n        {\n          "name": "languageCode",\n          "source": "/document/languageCode"\n        }\n      ],\n      "outputs": [\n        {\n          "name": "textItems",\n          "targetName": "pages"\n        }\n      ]\n    },\n    {\n      "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",\n      "context": "/document/pages/*",\n      "inputs": [\n        {\n          "name": "text", "source": "/document/pages/*"\n        },\n        {\n          "name":"languageCode", "source": "/document/languageCode"\n        }\n      ],\n      "outputs": [\n        {\n          "name": "keyPhrases",\n          "targetName": "keyPhrases"\n        }\n      ]\n    }\n  ]\n}'
 ```
