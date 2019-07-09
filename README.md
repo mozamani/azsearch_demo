@@ -246,6 +246,7 @@ Content-Type: application/json
 
 ## 8. Knowldge Store
 https://docs.microsoft.com/en-us/azure/search/knowledge-store-concept-intro
+![alt text](https://docs.microsoft.com/en-us/azure/search/media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png)
 
 
 ## Notes:
