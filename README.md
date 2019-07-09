@@ -137,7 +137,7 @@ curl --request PUT \
 ![alt text](https://docs.microsoft.com/en-us/azure/search/media/cognitive-search-tutorial-blob/skillset.png)
 
 ## Create Index
-```
+```shell
 PUT https://[servicename].search.windows.net/indexes/demoindex?api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
@@ -188,7 +188,7 @@ Content-Type: application/json
 ```
 
 ## Create Indexer
-```
+```shell
 PUT https://[servicename].search.windows.net/indexers/demoindexer?api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
