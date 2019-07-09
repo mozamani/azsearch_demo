@@ -260,7 +260,8 @@ https://docs.microsoft.com/en-us/azure/search/query-lucene-syntax
 - How to add a scoring profile
 https://docs.microsoft.com/en-us/azure/search/index-add-scoring-profiles
 
-- How to add a suggester
+- How to add a suggester 
+https://docs.microsoft.com/en-us/azure/search/index-add-suggesters
 
 - How to use CORS   
 https://clemenssiebler.com/azure-search-cors-configuration/   
