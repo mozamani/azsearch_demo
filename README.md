@@ -135,3 +135,54 @@ curl --request PUT \
 ```
 
 ![alt text](https://docs.microsoft.com/en-us/azure/search/media/cognitive-search-tutorial-blob/skillset.png)
+
+## Create Index
+```
+PUT https://[servicename].search.windows.net/indexes/demoindex?api-version=2019-05-06
+api-key: [api-key]
+Content-Type: application/json
+
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "Edm.String",
+      "key": true,
+      "searchable": true,
+      "filterable": false,
+      "facetable": false,
+      "sortable": true
+    },
+    {
+      "name": "content",
+      "type": "Edm.String",
+      "sortable": false,
+      "searchable": true,
+      "filterable": false,
+      "facetable": false
+    },
+    {
+      "name": "languageCode",
+      "type": "Edm.String",
+      "searchable": true,
+      "filterable": false,
+      "facetable": false
+    },
+    {
+      "name": "keyPhrases",
+      "type": "Collection(Edm.String)",
+      "searchable": true,
+      "filterable": false,
+      "facetable": false
+    },
+    {
+      "name": "organizations",
+      "type": "Collection(Edm.String)",
+      "searchable": true,
+      "sortable": false,
+      "filterable": false,
+      "facetable": false
+    }
+  ]
+}
+```
