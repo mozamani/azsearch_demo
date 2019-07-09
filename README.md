@@ -1,8 +1,10 @@
 # Azure Search Demo
 
-## Create the Search Service
+## 1. Create an Azure Search Service  
 
-## Add a storage 
+## 2. Create an Azure Cognitive Service
+
+## 3. Add a storage 
 ```shell
 POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
 Content-Type: application/json
@@ -35,8 +37,12 @@ curl --request POST \
   --data '{\n    "name" : "sample-data-json",\n    "type" : "azureblob",\n    "credentials" : { "connectionString" : "[connection string];" },\n    "container" : { "name" : "[containername]"}\n}'
 ```
 
-## Create a skillset
-Here Language Detection, Text Split, Entity Recognition & Key Phrase Extraction 
+## 4. Create a skillset
+Here pre-built cognitive skillsets:
+Language Detection
+Text Split 
+Entity Recognition 
+Key Phrase Extraction   
 
 ```shell
 PUT https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2019-05-06
