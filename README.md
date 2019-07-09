@@ -1,4 +1,4 @@
-# Azure Search Demo
+# Azure (Cognitive) Search Demo
 
 ## 1. Create an Azure Search Service  
 
