@@ -38,7 +38,7 @@ curl --request POST \
 ```
 
 ## 4. Create a skillset
-Here pre-built cognitive skillsets:
+Here pre-built cognitive skillsets:  
 Language Detection   
 Text Split   
 Entity Recognition   
@@ -244,6 +244,10 @@ api-key: [api-key]
 Content-Type: application/json
 ```
 
+## 8. Knowldge Store
+https://docs.microsoft.com/en-us/azure/search/knowledge-store-concept-intro
+
+
 ## Notes:
 - How indexing and context works:  
 https://medium.com/@Herger/chapter-2-azure-search-in-the-spotlight-72da0b4cf39c     
@@ -254,7 +258,6 @@ https://docs.microsoft.com/en-us/azure/search/query-lucene-syntax
 
 - How to expose an index   
 https://clemenssiebler.com/azure-search-cors-configuration/  
-
 
 
 # Useful Links
