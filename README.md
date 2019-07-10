@@ -1,5 +1,11 @@
 # Azure (Cognitive) Search Demo
 
+## 0. Concepts 
+- Data source. 
+- Skillset / Cognitive Services. 
+- Index. 
+- Indexer. 
+
 ## 1. Create an Azure Search Service  
 
 ## 2. Create an Azure Cognitive Service
