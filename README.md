@@ -5,7 +5,7 @@
 - Skillset / Cognitive Services. 
 - Index. 
 - Indexer. 
-- Knowldge Store. 
+- Knowledge Store. 
 
 ## 1. Create an Azure Search Service  
 
